@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="content">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}  
+        {% for message in messages %}
+            {% if 'saved' in message %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% else %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>{{ item.title }}</h1>
+    <h4>{{ item.description }}</h4>
+    <br>
+
+    {% if isLoggedIn and user_info['user_id'] == item.user_id %}
+    <div class="div float-right">
+      <a href="{{url_for('editItem', item_id = item.id )}}" class="btn btn-warning button">Edit</a>
+      <a href="{{url_for('deleteItem', item_id = item.id )}}"><button class="btn btn-danger button">Delete</button></a>
+    </div>
+    {% endif %}
+</div>
+  
+{% endblock %}

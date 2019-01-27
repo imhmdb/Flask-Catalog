@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}  
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    {% if isLoggedIn %}
+      <a href="{{url_for('addItem', category_id=category_id)}}" class="btn btn-info button block">Add Item</a>
+    {% endif %}
+    {% if category_items == [] %}
+        <p class="emptyText">There is no items yet, please add some.</p>
+    {% else %}
+        {% for item in category_items %}
+            <a href="{{url_for('showItem', item_id=item.id)}}"><p>{{ item.title }}</p></a>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

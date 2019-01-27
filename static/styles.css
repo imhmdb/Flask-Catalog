@@ -1,0 +1,55 @@
+body {
+    font-family: 'Roboto';
+}
+
+.bgray{
+    background-color: #8E24AA!important;
+}
+.emptyText {
+    padding: 40px;
+}
+
+
+.content {
+    padding: 40px;
+}
+
+
+#signin {
+    justify-content: flex-end;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+#name {
+    color: white;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button {
+    margin-bottom: 30px;
+    width: 120px;
+}
+
+.block {
+    display: block;
+}
+
+
+.formInput {
+    width: 650px;
+}
+
+.cSelect {
+    margin-bottom: 15px;
+    display: block;
+}
+
+
+#logout {
+    margin-left: 10px;
+}
